@@ -1,0 +1,14 @@
+<div *ngIf="!isEmptyObject(formDefinition)">
+<formio [form]="formDefinition" (customEvent)="onSubmit($event)" [submission]="formData" [refresh]="refreshForm"></formio>
+</div>
+<div *ngIf="isEmptyObject(formDefinition)">
+  <p>Kann Formular nicht anzeigen!</p>
+</div>
+<!--
+<formio src='http://localhost:4200/forms/camundaform01' (customEvent)="onSubmit($event)" [submission]='{
+  "data": {
+    "einTextfeld": "Hier kommt inhalt"
+  }
+}'[readOnly]="formReadOnly"></formio>
+-->
+{{formData | json}}

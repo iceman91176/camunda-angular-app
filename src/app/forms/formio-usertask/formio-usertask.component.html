@@ -1,0 +1,7 @@
+<div *ngIf="formKey">
+<formio [readOnly]="formReadOnly" [form]="formDefinition" (submit)="onSubmit($event)" (customEvent)="onFormEvent($event)"  [refresh]="refreshForm"></formio>
+</div>
+<div [hidden]="!submitted">
+  <p>Der Prozess wurde gestartet!</p>
+</div>
+{{camundaFormModel | json}}

@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { CamundaRestService } from '../camunda-rest.service';
 import { GenericForm } from '../generic-form.component';
+import { FormioStartComponent } from '../forms/formio-start/formio-start.component';
 
 @Component({
   selector: 'app-start-process',
@@ -24,8 +25,9 @@ export class StartProcessComponent implements OnInit {
   ngOnInit() {
     if (this.route.params != null) {
       this.route.params.subscribe(params => {
+        
         this.processDefinitionKey = params['processdefinitionkey'];
-        this.loadTaskKey();
+        //this.loadTaskKey();
       });
     }
   }

@@ -8,7 +8,10 @@
   </div>
   <div class="ten wide column">
     <div *ngIf="taskId">
+      <!--
       <generic-form [taskId]="taskId" [formKey]="formKey"></generic-form>
+      -->
+      <formio-user-form [taskId]="taskId"></formio-user-form>
     </div>
     <div *ngIf="!taskId">
       <p>Please select task.</p>

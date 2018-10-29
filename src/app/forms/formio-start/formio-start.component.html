@@ -1,0 +1,6 @@
+<div *ngIf="formKey">
+<formio (config)="formConfig" [readOnly]="formReadOnly" [form]="formDefinition" (customEvent)="onFormEvent($event)" [submission]="formData" [refresh]="refreshForm"></formio>
+</div>
+<div [hidden]="!submitted">
+  <p>Der Prozess wurde gestartet!</p>
+</div>

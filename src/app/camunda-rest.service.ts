@@ -50,6 +50,14 @@ export class CamundaRestService {
     );
   }
 
+  getVariablesForProcessDefinitionKey(processDefinitionKey, variableNames: String): Observable<any> {
+    const url = `${this.engineRestUrl}process-definition/key/${processDefinitionKey}/form-variables?variableNames=${variableNames}`;
+    return this.http.get<any>(url).pipe(
+      tap(form => this.log(`fetched definition formvariables`)),
+      catchError(this.handleError('getVariablesForProcessDefinitionTaskKey', []))
+    );
+  }
+
   getProcessDefinitionTaskKey(processDefinitionKey): Observable<any> {
     const url = `${this.engineRestUrl}process-definition/key/${processDefinitionKey}/startForm`;
     return this.http.get<any>(url).pipe(

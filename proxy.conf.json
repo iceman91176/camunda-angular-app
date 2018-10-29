@@ -4,5 +4,29 @@
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
+  },
+  "/api/*": {
+    "target": "http://localhost:3002/",
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/forms/*": {
+    "target": "http://localhost:3001/",
+    "pathRewrite": {
+      "^/forms": ""
+    },
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/form/*": {
+    "target": "http://localhost:3001/",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }
