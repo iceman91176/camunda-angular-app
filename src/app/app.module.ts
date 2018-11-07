@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { SuiModule } from 'ng2-semantic-ui';
@@ -21,6 +21,11 @@ import { FormioStartComponent } from './forms/formio-start/formio-start.componen
 import { FormioUsertaskComponent } from './forms/formio-usertask/formio-usertask.component';
 import {AppConfig} from './formio-config';
 
+import { ClarityModule } from '@clr/angular';
+import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+import { AppAuthGuard } from './app.authguard';
+import { initializer } from './utils/app-init';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,9 +45,16 @@ import {AppConfig} from './formio-config';
     AppRoutingModule,
     HttpClientModule,
     MyAddonModule,
+    ClarityModule.forRoot(),
+    KeycloakAngularModule,
     FormioModule
   ],
-  providers: [CamundaRestService,FormioService,{provide: FormioAppConfig, useValue: AppConfig}],
+  providers: [CamundaRestService,FormioService,{provide: FormioAppConfig, useValue: AppConfig},{
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      multi: true,
+      deps: [KeycloakService]
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

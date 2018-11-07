@@ -1,5 +1,8 @@
 {
   "compileOnSave": false,
+"angularCompilerOptions": {
+  "enableIvy": true
+},
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
@@ -14,6 +17,8 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "module": "es2015",
+    "baseUrl": "./"
   }
 }

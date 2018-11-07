@@ -17,6 +17,8 @@
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
+// Add global to window, assigning the value of window itself.
+(window as any).global = window;
 
 /** IE9, IE10 and IE11 requires all of the following polyfills. **/
 // import 'core-js/es6/symbol';
@@ -43,7 +45,7 @@
 
 /** Evergreen browsers require these. **/
 // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
-import 'core-js/es7/reflect';
+
 
 
 /**
