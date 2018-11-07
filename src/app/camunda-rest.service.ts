@@ -12,7 +12,9 @@ const httpOptions = {
 
 @Injectable()
 export class CamundaRestService {
-  private engineRestUrl = '/engine-rest/'
+  private engineRestUrl = 'https://apis.witcom-dev.services/camunda/'
+  //private engineRestUrl = 'http://camunda.witcom-dev.services:8066/engine-rest'
+  //private engineRestUrl = '/engine-rest/'
 
   constructor(private http: HttpClient) {
 

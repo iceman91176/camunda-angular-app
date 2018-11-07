@@ -1,7 +1,10 @@
 {
   "/engine-rest/*": {
-    "target": "http://localhost:8080/",
+    "target": "http://apis.witcom-dev.services/camunda/",
     "secure": false,
+    "pathRewrite": {
+      "^/engine-rest": ""
+    },
     "changeOrigin": true,
     "logLevel": "debug"
   },
