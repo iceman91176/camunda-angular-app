@@ -17,7 +17,7 @@ export class AppComponent {
   async ngOnInit() {
     if (await this.keycloakService.isLoggedIn()) {
       this.userDetails = await this.keycloakService.loadUserProfile();
-      console.log(this.keycloakService.getUserRoles());
+      //console.log(this.keycloakService);
     }
   }
 

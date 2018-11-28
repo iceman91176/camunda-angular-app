@@ -12,7 +12,7 @@ const httpOptions = {
 
 @Injectable()
 export class FormioService {
-  private engineRestUrl = 'http://localhost:4200/forms'
+  private engineRestUrl = 'https://apis.witcom-dev.services/forms'
 
   constructor(private http: HttpClient) {
 

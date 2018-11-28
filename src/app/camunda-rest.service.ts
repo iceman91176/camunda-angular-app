@@ -27,6 +27,23 @@ export class CamundaRestService {
       catchError(this.handleError('getTasks', []))
     );
   }
+  
+  getTaskById(taskId: String): Observable<any> {
+    const endpoint = `${this.engineRestUrl}task/${taskId}`;
+    return this.http.get<any>(endpoint).pipe(
+      tap(form => this.log(`fetched task ${taskId}`)),
+      catchError(this.handleError('getTaskById', [])) 
+    );
+  }
+  
+  
+  claimTask(taskId: String, user: Object): Observable<any> {
+    const endpoint = `${this.engineRestUrl}task/${taskId}/claim`;
+    return this.http.post<any>(endpoint, user).pipe(
+      tap(form => this.log(`claimed task ${taskId}`)),
+      catchError(this.handleError('claimTask', [])) 
+    );
+  }
 
   getTaskFormKey(taskId: String): Observable<any> {
     const endpoint = `${this.engineRestUrl}task/${taskId}/form`;

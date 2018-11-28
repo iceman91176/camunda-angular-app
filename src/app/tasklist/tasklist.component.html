@@ -10,8 +10,17 @@
     <div *ngIf="taskId">
       <!--
       <generic-form [taskId]="taskId" [formKey]="formKey"></generic-form>
-      -->
-      <formio-user-form [taskId]="taskId"></formio-user-form>
+      -->  
+      <div *ngIf="activeTask | async as task">
+        <div *ngIf="!task.assignee">
+        <button (click)="claimTask(task.id)">Claim me !</button>
+        </div>
+      
+        <formio-user-form [taskId]="taskId"></formio-user-form>
+      </div>
+      
+      
+      
     </div>
     <div *ngIf="!taskId">
       <p>Please select task.</p>
